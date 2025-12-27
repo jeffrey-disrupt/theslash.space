@@ -1,14 +1,109 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Your Name</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Your Site</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <h1>Hello, world 👋</h1>
-    <p>This is my website.</p>
+    <header class="topbar">
+      <div class="brand">jeffrey-disrupt</div>
+
+      <nav class="top-actions">
+        <button id="themeBtn" class="btn ghost" type="button" aria-pressed="false">
+          Toggle theme
+        </button>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Sidebar navigation">
+        <button class="tab active" data-panel="home" type="button">Home</button>
+        <button class="tab" data-panel="projects" type="button">Projects</button>
+        <button class="tab" data-panel="dashboard" type="button">Dashboard</button>
+        <button class="tab" data-panel="settings" type="button">Settings</button>
+      </aside>
+
+      <main class="main" aria-live="polite">
+        <!-- HOME -->
+        <section class="panel show" id="panel-home">
+          <h1>Home</h1>
+          <p>This is a simple GUI built with plain HTML/CSS/JS.</p>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Status</h3>
+              <p id="statusText">Ready.</p>
+            </div>
+            <div class="card">
+              <h3>Quick Actions</h3>
+              <button id="pingBtn" class="btn" type="button">Ping</button>
+              <button id="clearBtn" class="btn ghost" type="button">Clear</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="panel" id="panel-projects">
+          <h1>Projects</h1>
+          <ul class="list">
+            <li><strong>Website</strong> — GitHub Pages + Porkbun domain ✅</li>
+            <li><strong>Next</strong> — Add real content and a contact form</li>
+          </ul>
+        </section>
+
+        <!-- DASHBOARD -->
+        <section class="panel" id="panel-dashboard">
+          <h1>Dashboard</h1>
+          <p>Example input controls:</p>
+
+          <form id="demoForm" class="form">
+            <label>
+              Goal
+              <input name="goal" placeholder="e.g., Launch portfolio site" />
+            </label>
+
+            <label>
+              Priority
+              <select name="priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <label class="row">
+              <input name="public" type="checkbox" />
+              Make this public
+            </label>
+
+            <button class="btn" type="submit">Save</button>
+            <p class="hint" id="formHint">Saved items will show here (local only).</p>
+          </form>
+
+          <div class="card">
+            <h3>Saved</h3>
+            <pre id="savedOutput" class="codeblock">{}</pre>
+          </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="panel" id="panel-settings">
+          <h1>Settings</h1>
+          <p>These settings are stored in your browser (localStorage).</p>
+          <button id="resetBtn" class="btn danger" type="button">Reset saved data</button>
+        </section>
+
+        <section id="contact" class="panel show-contact">
+          <h2>Contact</h2>
+          <p>Add your email or a form here.</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
